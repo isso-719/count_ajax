@@ -1,0 +1,10 @@
+default_env: &default
+  adapter: postgresql
+  encoding: unicode
+  database: c_count_ajax
+
+development:
+  <<: *default
+
+production:
+  <<: *default
