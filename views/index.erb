@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-  
+
   <!--CountアプリのCSS読み込み(ボタン用に変わっているので注意!!!)-->
   <link rel="stylesheet" href="/assets/css/count.css">
-  
+
   <!--jqueryを読み込む-->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -15,35 +15,35 @@
 <body>
   <!--値-->
   <h1><%= @count %></h1>
-  
+
   <!--プラスボタン-->
   <button class="plus">+</button>
-  
+
   <!--マイナスボタン-->
   <button class="minus">-</button>
-  
-  
+
+
   <!--ajax用スクリプト-->
   <script>
     // plusボタンを押したら関数を実行する
     $(document).on("click", ".plus", () =>{
-      
+
       $.ajax({
         // リクエスト先を指定する
         url: "/plus",
-  
+
         // リクエスト方法を指定する
         method: "POST",
-        
+
         // 通信に成功したら
         success: (n) => {
           // h1のテキストをレスポンスで受け取ったnに変更する
           $("h1").text(n);
         }
-  
+
       });
     });
-    
+
     $(document).on("click", ".minus", () =>{
       $.ajax({
         url: "/minus",
